@@ -13,11 +13,11 @@ export class FieldGroup implements TsExpression {
 
     tsExpression(): string {
         return `
-            ${toTsExpressions(this.stringFields)}
-            ${toTsExpressions(this.stringListFields)}
-            ${toTsExpressions(this.entityListFields)}
-            ${toTsExpressions(this.fileFields)}
-        `;
+${toTsExpressions(this.stringFields)}
+${toTsExpressions(this.stringListFields)}
+${toTsExpressions(this.entityListFields)}
+${toTsExpressions(this.fileFields)}
+`.trim();
     }
 }
 
@@ -29,12 +29,11 @@ export class StringField implements TsExpression {
 
     tsExpression(): string {
         return `
-            ${this.fieldName} : {
-                type: "${this.fieldType}";
-                value: string;
-                error?: string;
-            };
-        `;
+${this.fieldName} : {
+    type: "${this.fieldType}";
+    value: string;
+    error?: string;
+};`.trim();
     }
 }
 
@@ -45,12 +44,11 @@ export class StringListField implements TsExpression {
     ) {}
     tsExpression(): string {
         return `
-            ${this.fieldName} : {
-                type: "${this.fieldType}";
-                value: string[];
-                error?: string;
-            };
-        `;
+${this.fieldName} : {
+    type: "${this.fieldType}";
+    value: string[];
+    error?: string;
+};`.trim();
     }
 }
 
@@ -65,11 +63,10 @@ export class UserField implements TsExpression {
      */
     tsExpression(): string {
         return `
-            ${this.fieldName} : {
-                type: "${this.fieldType}";
-                value: {code: string, name: string}; 
-            };
-        `;
+${this.fieldName} : {
+    type: "${this.fieldType}";
+    value: {code: string, name: string}; 
+};`.trim();
     }
 }
 
@@ -80,12 +77,11 @@ export class EntityListField implements TsExpression {
     ) {}
     tsExpression(): string {
         return `
-            ${this.fieldName} : {
-                type: "${this.fieldType}"; 
-                value: {code: string, name: string}[];
-                error?: string;
-            };
-        `;
+${this.fieldName} : {
+    type: "${this.fieldType}"; 
+    value: {code: string, name: string}[];
+    error?: string;
+};`.trim();
     }
 }
 
@@ -96,17 +92,16 @@ export class FileField implements TsExpression {
     ) {}
     tsExpression(): string {
         return `
-            ${this.fieldName} : {
-                type: "${this.fieldType}";
-                value: {
-                    contentType: string;
-                    fileKey: string;
-                    name: string;
-                    size: string;
-                }[];
-                error?: string;
-            };
-        `;
+${this.fieldName} : {
+    type: "${this.fieldType}";
+    value: {
+        contentType: string;
+        fileKey: string;
+        name: string;
+        size: string;
+    }[];
+    error?: string;
+};`.trim();
     }
 }
 
@@ -118,15 +113,14 @@ export class SubTableField implements TsExpression {
     ) {}
     tsExpression(): string {
         return `
-            ${this.fieldName} : {  
-                type: "${this.fieldType}";
-                value: {
-                    id: string;
-                    value: {
-                        ${this.fieldGroup.tsExpression()}
-                    }
-                }[];
-            };
-        `;
+${this.fieldName} : {
+    type: "${this.fieldType}";
+    value: {
+        id: string;
+        value: {
+            ${this.fieldGroup.tsExpression()}
+        }
+    }[];
+};`.trim();
     }
 }
