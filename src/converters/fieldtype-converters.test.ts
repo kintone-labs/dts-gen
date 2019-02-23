@@ -173,7 +173,7 @@ describe("FileFieldTypeConverter", () => {
                 type: "NUMBER",
             },
         ];
-        expect(output[0].fields.simpleFields).toEqual(
+        expect(output[0].fields.stringFields).toEqual(
             expectedSimpleFields
         );
 
@@ -226,7 +226,7 @@ describe("FileFieldTypeConverter", () => {
             },
         ];
         expect(
-            output[0].fields.simpleFieldsInSavedRecord
+            output[0].fields.stringFieldsInSavedRecord
         ).toEqual(expectedSimpleValueInSavedRecord);
 
         expect(output[0].fields.subTableFields).toEqual([]);
