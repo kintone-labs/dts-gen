@@ -2,9 +2,9 @@ import { FieldTypeGroups } from "../converters/fileldtype-converter";
 import * as F from "./expressions/fields";
 import { Namespace } from "./expressions/namespace";
 import {
-    TypeDefenition,
-    SavedTypeDefenition,
-} from "./expressions/typedefenitions";
+    TypeDefinition,
+    SavedTypeDefinition,
+} from "./expressions/typedefinitions";
 import { FieldType } from "../kintone/clients/forms-client";
 
 export function convertToTsExpression({
@@ -26,7 +26,7 @@ export function convertToTsExpression({
             )
     );
 
-    const typeDefenition = new TypeDefenition(
+    const typeDefenition = new TypeDefinition(
         typeName,
         fieldGroup,
         subTableFields
@@ -40,7 +40,7 @@ export function convertToTsExpression({
         f => new F.StringField(f.code, f.type)
     );
 
-    const savedTypeDefenition = new SavedTypeDefenition(
+    const savedTypeDefenition = new SavedTypeDefinition(
         typeName,
         userFields,
         stringFieldsInSavedRecord
