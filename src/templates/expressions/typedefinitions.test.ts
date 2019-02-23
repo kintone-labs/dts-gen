@@ -1,14 +1,23 @@
-import {TypeDefinition, SavedTypeDefinition}
-    from "./typedefinitions";
-import { FieldGroup, StringField, SubTableField, StringListField, EntityListField, FileField, UserField } from "./fields";
+import {
+    TypeDefinition,
+    SavedTypeDefinition,
+} from "./typedefinitions";
+import {
+    FieldGroup,
+    StringField,
+    SubTableField,
+    StringListField,
+    EntityListField,
+    FileField,
+    UserField,
+} from "./fields";
 
 describe("TypeDefinition", () => {
-
     class TestFieldGroup extends FieldGroup {
         constructor() {
             super(null, null, null, null);
         }
-        tsExpression() : string {
+        tsExpression(): string {
             return "// FieldGroup";
         }
     }
@@ -28,18 +37,20 @@ describe("TypeDefinition", () => {
                 "TestType",
                 new TestFieldGroup(),
                 [
-                    new TestSubTableField(), 
-                    new TestSubTableField()
+                    new TestSubTableField(),
+                    new TestSubTableField(),
                 ]
             )
-            .tsExpression()
-            .trim()
-        ).toEqual(`
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
 interface TestType {
     // FieldGroup
     // SubTableField
 // SubTableField
-}`.trim())
+}`.trim()
+        );
     });
 });
 
@@ -48,16 +59,16 @@ describe("SavedTypeDefinition", () => {
         constructor() {
             super(null, null);
         }
-        tsExpression() : string {
-            return "// StringField"
+        tsExpression(): string {
+            return "// StringField";
         }
     }
     class TestUserField extends UserField {
         constructor() {
             super(null, null);
         }
-        tsExpression() : string {
-            return "// UserField"
+        tsExpression(): string {
+            return "// UserField";
         }
     }
     test("tsExpression()", () => {
@@ -66,9 +77,11 @@ describe("SavedTypeDefinition", () => {
                 "TestType",
                 [new TestUserField()],
                 [new TestStringField()]
-            ).tsExpression()
-            .trim()
-        ).toEqual(`
+            )
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
 interface SavedTestType extends TestType {
     $id : {
         type: \"__ID__\";
@@ -80,6 +93,7 @@ interface SavedTestType extends TestType {
     };
     // UserField
     // StringField
-}`.trim())
+}`.trim()
+        );
     });
-})
+});

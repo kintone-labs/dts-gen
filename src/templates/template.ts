@@ -27,14 +27,9 @@ function renderAsFile(
         fs.mkdirSync(path.dirname(outputPath));
     }
 
-    fs.writeFile(
+    fs.writeFileSync(
         path.join(process.cwd(), output),
-        prettySource,
-        err => {
-            if (err) {
-                throw err;
-            }
-        }
+        prettySource
     );
 }
 // definition
