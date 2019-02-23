@@ -107,8 +107,8 @@ ${this.fieldName} : {
 
 export class SubTableField implements TsExpression {
     constructor(
-        private fieldName,
-        private fieldType,
+        private fieldName: string,
+        private fieldType: string,
         private fieldGroup: FieldGroup
     ) {}
     tsExpression(): string {

@@ -20,7 +20,7 @@ export class TypeDefinition implements TsExpression {
 interface ${this.typeName} {
     ${this.fieldGroup.tsExpression()}
     ${toTsExpressions(this.subtableFields)}
-};`.trim();
+}`.trim();
     }
 }
 
@@ -44,6 +44,6 @@ interface Saved${this.typeName} extends ${this.typeName} {
     };
     ${toTsExpressions(this.userFields)}
     ${toTsExpressions(this.stringFields)}
-};`.trim();
+}`.trim();
     }
 }
