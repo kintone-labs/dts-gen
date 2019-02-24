@@ -1,5 +1,7 @@
 #!/bin/sh -ex
 
+npm run lint
+
 npm run tsc
 
 cat resources/shebang.txt dist/index.js > dist/index.js.tmp

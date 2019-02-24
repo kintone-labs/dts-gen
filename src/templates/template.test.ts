@@ -23,16 +23,20 @@ describe("renderAsFile", () => {
             namespace: "kintone.types",
             fieldTypeGroups,
         };
-        t.renderAsFile(TEMP_TEST_TYPEDEF, input)
+        t.renderAsFile(TEMP_TEST_TYPEDEF, input);
 
-        const expected = fs.readFileSync("./resources/testfield.d.ts");
+        const expected = fs.readFileSync(
+            "./resources/testfield.d.ts"
+        );
         const actual = fs.readFileSync(TEMP_TEST_TYPEDEF);
-        expect(actual.toString()).toEqual(expected.toString());
+        expect(actual.toString()).toEqual(
+            expected.toString()
+        );
     });
 
     afterEach(() => {
         fs.unlink(TEMP_TEST_TYPEDEF, err => {
-            if(err) {
+            if (err) {
                 throw err;
             }
         });

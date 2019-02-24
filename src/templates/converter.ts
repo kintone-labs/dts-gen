@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { FieldTypeGroups } from "../converters/fileldtype-converter";
 import * as F from "./expressions/fields";
 import { Namespace } from "./expressions/namespace";
@@ -5,6 +6,7 @@ import {
     TypeDefinition,
     SavedTypeDefinition,
 } from "./expressions/typedefinitions";
+// eslint-disable-next-line no-unused-vars
 import { FieldType } from "../kintone/clients/forms-client";
 
 export function convertToTsExpression({

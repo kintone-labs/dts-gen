@@ -2,6 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as prettier from "prettier";
 
+// eslint-disable-next-line no-unused-vars
 import { FieldTypeGroups } from "../converters/fileldtype-converter";
 import { convertToTsExpression } from "./converter";
 
