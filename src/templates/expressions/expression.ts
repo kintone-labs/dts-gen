@@ -1,5 +1,3 @@
-import * as os from "os";
-
 export interface TsExpression {
     tsExpression(): string;
 }
