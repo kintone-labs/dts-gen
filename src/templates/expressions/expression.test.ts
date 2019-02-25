@@ -17,6 +17,12 @@ describe("toTsExpressions", () => {
                 new TestExpression("2"),
                 new TestExpression("3"),
             ])
-        ).toEqual("1\n2\n3");
+        ).toEqual(
+            `
+1
+2
+3
+`.trim()
+        );
     });
 });

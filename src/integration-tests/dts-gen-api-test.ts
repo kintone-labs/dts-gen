@@ -1,4 +1,3 @@
-/// <reference types="../../kintone" />
 import * as assert from "assert";
 
 function assertKintoneBuiltinFunctions() {

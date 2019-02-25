@@ -1,3 +1,5 @@
+import * as os from "os";
+
 export interface TsExpression {
     tsExpression(): string;
 }
@@ -7,5 +9,5 @@ export function toTsExpressions(
 ): string {
     return expressions
         .map(e => e.tsExpression())
-        .join("\n");
+        .join(os.EOL);
 }
