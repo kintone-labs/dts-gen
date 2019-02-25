@@ -16,7 +16,7 @@ describe("StringField", () => {
         ).toEqual(
             `
 fieldName : {
-    type: \"SINGLE_LINE\";
+    type: "SINGLE_LINE";
     value: string;
     error?: string;
 };`.trim()
@@ -33,7 +33,7 @@ describe("StringListField", () => {
         ).toEqual(
             `
 fieldName : {
-    type: \"CHECK_BOX\";
+    type: "CHECK_BOX";
     value: string[];
     error?: string;
 };`.trim()
@@ -50,7 +50,7 @@ describe("EntityListField", () => {
         ).toEqual(
             `
 fieldName : {
-    type: \"USER_SELECT\"; 
+    type: "USER_SELECT";
     value: {code: string, name: string}[];
     error?: string;
 };`.trim()
@@ -72,7 +72,7 @@ describe("SubTableField", () => {
         ).toEqual(
             `
 fieldName : {
-    type: \"SUBTABLE\";
+    type: "SUBTABLE";
     value: {
         id: string;
         value: {
@@ -93,7 +93,7 @@ describe("FileField", () => {
         ).toEqual(
             `
 fieldName : {
-    type: \"FILE\";
+    type: "FILE";
     value: {
         contentType: string;
         fileKey: string;
@@ -126,26 +126,46 @@ describe("FieldGroup", () => {
                         "MULTI_CHECK"
                     ),
                 ],
-                [],
-                []
+                [
+                    new EntityListField(
+                        "fieldName4",
+                        "USER_SELECT"
+                    ),
+                ],
+                [new FileField("fieldName5", "FILE")]
             )
                 .tsExpression()
                 .trim()
         ).toEqual(
             `
 fieldName1 : {
-    type: \"SINGLE_STRING_LINE\";
+    type: "SINGLE_STRING_LINE";
     value: string;
     error?: string;
 };
 fieldName2 : {
-    type: \"SINGLE_STRING_LINE\";
+    type: "SINGLE_STRING_LINE";
     value: string;
     error?: string;
 };
 fieldName3 : {
-    type: \"MULTI_CHECK\";
+    type: "MULTI_CHECK";
     value: string[];
+    error?: string;
+};
+fieldName4 : {
+    type: "USER_SELECT";
+    value: {code: string, name: string}[];
+    error?: string;
+};
+fieldName5 : {
+    type: "FILE";
+    value: {
+        contentType: string;
+        fileKey: string;
+        name: string;
+        size: string;
+    }[];
     error?: string;
 };`.trim()
         );

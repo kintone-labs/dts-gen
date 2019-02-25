@@ -78,7 +78,7 @@ export class EntityListField implements TsExpression {
     tsExpression(): string {
         return `
 ${this.fieldName} : {
-    type: "${this.fieldType}"; 
+    type: "${this.fieldType}";
     value: {code: string, name: string}[];
     error?: string;
 };`.trim();

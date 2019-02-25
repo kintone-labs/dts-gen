@@ -29,8 +29,8 @@ describe("renderAsFile", () => {
             "./resources/testfield.d.ts"
         );
         const actual = fs.readFileSync(TEMP_TEST_TYPEDEF);
-        expect(actual.toString()).toEqual(
-            expected.toString()
+        expect(actual.toString().trim()).toEqual(
+            expected.toString().trim()
         );
     });
 
