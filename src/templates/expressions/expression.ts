@@ -9,5 +9,5 @@ export function toTsExpressions(
 ): string {
     return expressions
         .map(e => e.tsExpression())
-        .join(os.EOL);
+        .join("\n");
 }
