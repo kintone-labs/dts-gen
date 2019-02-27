@@ -1,4 +1,4 @@
-# Maintainance Guide
+# Maintenance Guide
 
 ## How to build
 Just run `npm run build`.
@@ -7,30 +7,30 @@ You can artifact in `dist` directory.
 
 After build process finished, build artifact are below:
 
-- `dist/index.js` : entry point of dts-gen command line tool
-- `dist/integration-tests/setup-test-app.js`: command-line utilify tool for integration test
+- `dist/index.js`: entry point of the dts-gen command line tool
+- `dist/integration-tests/setup-test-app.js`: a command-line utility tool for integration test
 - `dist/dts-gen-integration-test.js`: test code which will be uploaded as kintone js customize
 
 
-`dist/dts-gen-integration-test.js` is build by webpack.
-and this code includes some assertions:
+`dist/dts-gen-integration-test.js` is built by webpack.
+This code includes some assertions:
 
-- assert reference for kintone builtin function(see: `src/integration-tests/dts-gen-api-test.ts`)
-- assert reference for field reference(see: `src/integration-tests/dts-gen-fields-test.ts`)
+- assert reference for kintone builtin function (see: `src/integration-tests/dts-gen-api-test.ts`)
+- assert reference for field reference (see: `src/integration-tests/dts-gen-fields-test.ts`)
 
 ### setup-test-app
-with this command-line utilify tool, you can prepare test kintone app.
+With this command-line utility tool, you can prepare a test kintone app.
 
-this command-line utilify will do:
+This command-line utility will do:
 
-1. create kintone app app for testing
-2. set field setting to (1) app.
-3. upload file of `--integration-test-js-file`
-4. deploy (1) app
-5. add demo record for integration test.
+1. Create kintone app for testing
+2. Set field setting to (1) app.
+3. Upload file of `--integration-test-js-file`
+4. Deploy (1) app
+5. Add demo record for integration test.
 
 Command line output like below:
-```
+```bash
 Preparing for App(ID:93)
 Preparing for field settings(ID:93)
 Uploading dts-gen-integration-test.js
@@ -39,18 +39,18 @@ Waiting for Deploy complete...
 Adding Demo Record
 ```
 
-After execute this tool,
+After executing this tool,
 
 1. Access kintone app(at this example, ID:93), this app includes 1 demo record data.
-2. Edit demo record, and you must set value to userSelect, groupSelect, titleSelect.
-3. Open app recod list page, and open web console
-4. Confirm No AssertionError happend.
+2. Edit demo record, and you must set a value to userSelect, groupSelect, titleSelect.
+3. Open app record list page, and open web console
+4. Confirm No AssertionError happens.
 
 
-You can execute this tools like below:
+You can execute these tools like below:
 
-```
-node ./dist/integration-tests/setup-test-app.js \
+```bash
+$ node ./dist/integration-tests/setup-test-app.js \
     -u *** \
     -p *** \
     --host https://****.cybozu.com \
@@ -60,7 +60,7 @@ node ./dist/integration-tests/setup-test-app.js \
 `--integration-test-js-file` :
 
 path of integration test which will be uploaded as kintone js customize file.
-you can run test code as a kintone customize js customize code.
+You can run the test code as a kintone customize js customize code.
 
 `-u, --p, --host`:
 
@@ -68,11 +68,10 @@ username, password, host of kintone.
 
 ## How to run unit tests
 
-Just run `npm run test`
+Just run `npm run test`.
 
 ## Write document
 
-this document written by `docsify`.
+This document was written by `docsify`.
 
 See Reference: [Quick Start](https://docsify.js.org/#/quickstart)
-
