@@ -50,22 +50,6 @@ You can confirm command line options with `kintone-dts-gen --help`
 
 ### Write kintone JavaScript customize with TypeScript
 
-```typescript
-interface Event {
-    appId: number;
-    recordId: number;
-    record: kintone.types.SavedDemoFields;
-}
-
-(() => {
-    kintone.events.on("app.record.create.show", (event: Event) => {
-        const appId = event.appId;
-        const recordId = event.recordId;
-        const type = event.record.Record_number.value;
-    });
-})();
-```
-
 1. Create `tsconfig.json` in project root
 
 ```javascript
@@ -104,8 +88,45 @@ interface Event {
 ```
 
 2. Compile With TypeScript
+
+Write Typescript code
+
+```typescript
+interface Event {
+    appId: number;
+    recordId: number;
+    record: kintone.types.SavedDemoFields;
+}
+
+(() => {
+    kintone.events.on("app.record.create.show", (event: Event) => {
+        const appId = event.appId;
+        const recordId = event.recordId;
+        const type = event.record.Record_number.value;
+    });
+})();
+```
+
 And then, You can compile with `tsc` command!
 Welcome to TypeSafe kintone coding world!
+
+### Appearance of code completion
+
+Define Interface:
+
+![Define interface](typescript-interface.gif)
+
+Call `kintone.events.on`:
+
+![Call Function](call-function.gif)
+
+Compile Error:
+
+![Compile error](compile-error.gif)
+
+Code completion in Subtable field: 
+
+![subtable](subtable.gif)
 
 ### Write kintone JavaScript customize with JavaScript
 
