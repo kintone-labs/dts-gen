@@ -68,7 +68,7 @@ npx tsc --init
    **/
   "files" : [
     "./node_modules/@kintone/dts-gen/kintone.d.ts",
-    "./src/demo-fields.d.ts"
+    // If you generated field definition like: "./src/demo-fields.d.ts"
   ],
   "include": [
     "src/**/*"
