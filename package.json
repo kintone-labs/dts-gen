@@ -1,6 +1,6 @@
 {
   "name": "@kintone/dts-gen",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Types for kintone js api and Types generating tools",
   "main": "dist/index.js",
   "scripts": {
@@ -22,12 +22,12 @@
     "build:integration": "webpack --mode development --config webpack.config.js"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "author": "Tomoya Yokota",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "commander": "^2.19.0",
     "form-data": "^2.3.3",
     "lodash": "^4.17.11",
