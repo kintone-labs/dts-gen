@@ -124,6 +124,10 @@ declare namespace kintone {
                 function setFieldShown(fieldCode: string, isShwon: boolean): void;
                 function setGroupFieldOpen(fieldCode: string, isOpen:boolean): void;
             }
+
+            namespace portal {
+                function getContentSpaceElement() : HTMLElement | null;
+            }
         }
     }
 
@@ -178,6 +182,10 @@ declare namespace kintone {
             callback: (resp: any) => void,
             error: (err: any) => void
         ) : void;
+    }
+
+    namespace portal {
+        function getContentSpaceElement() : Element|null
     }
 
     interface LoginUser {
