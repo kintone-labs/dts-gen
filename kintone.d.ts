@@ -164,10 +164,10 @@ declare namespace kintone {
                     isOpen: boolean
                 ): void;
             }
+        }
 
-            namespace portal {
-                function getContentSpaceElement(): HTMLElement | null;
-            }
+        namespace portal {
+            function getContentSpaceElement(): HTMLElement | null;
         }
     }
 
