@@ -5,7 +5,7 @@
         "es6": true
     },
     "globals": {
-        "kintone": "kintone"
+        "kintone": "readonly"
     },
     "parser": "typescript-eslint-parser",
     "plugins": [
