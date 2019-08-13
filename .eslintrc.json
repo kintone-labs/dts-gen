@@ -7,7 +7,10 @@
     "globals": {
         "kintone": "readonly"
     },
-    "parser": "typescript-eslint-parser",
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module"
+    },
     "plugins": [
         "typescript",
         "jest"
