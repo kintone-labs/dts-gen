@@ -16,7 +16,7 @@ function assertKintoneBuiltinFunctions() {
     assert.ok(
         kintone.api
             .url("/k/v1/records")
-            .endsWith("/k/v1/records")
+            .endsWith("/k/v1/records.json")
     );
     // only to check to compile success
     kintone.api.url("/k/v1/records", true);
