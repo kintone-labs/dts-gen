@@ -5,7 +5,8 @@ import {
 } from "./forms-client";
 import { DemoDatas } from "./demo-fullwidth-symbols-datas";
 
-export class DemoFullWidthSymbolClient implements FormsClient {
+export class DemoFullWidthSymbolClient
+    implements FormsClient {
     fetchFormProperties(
         _: FetchFormPropertiesInput
     ): Promise<FieldNameAndFieldOrSubTableField> {

@@ -36,7 +36,7 @@ const DemoFullWidthSymbolDataFields: any = {
         code: "＿",
         required: "false",
         defaultValue: "",
-    }
+    },
 };
 
 const DemoFullWidthSymbolRecord: any = {

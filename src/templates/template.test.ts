@@ -1,6 +1,6 @@
 import { TypeDefinitionTemplate as t } from "./template";
 import { DemoClient } from "../kintone/clients/demo-client";
-import { DemoFullWidthSymbolClient } from "../kintone/clients/demo-fullwidth-symbol-client"
+import { DemoFullWidthSymbolClient } from "../kintone/clients/demo-fullwidth-symbol-client";
 import { FieldTypeConverter } from "../converters/fileldtype-converter";
 import { objectValues } from "../utils/objectvalues";
 import * as fs from "fs";
@@ -75,7 +75,9 @@ describe("fullWidthSymbol Test", () => {
         t.renderAsFile(TEMP_TEST_TYPEDEF, input);
 
         const expected = fs
-            .readFileSync("./resources/test-fullwidth-symbol-field.d.ts")
+            .readFileSync(
+                "./resources/test-fullwidth-symbol-field.d.ts"
+            )
             .toString()
             .trim()
             .replace(/\r?\n/g, "");
