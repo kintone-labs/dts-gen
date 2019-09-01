@@ -15,7 +15,66 @@ describe("StringField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
+    type: "SINGLE_LINE";
+    value: string;
+    error?: string;
+};`.trim()
+        );
+    });
+});
+
+describe("StringField with Full Width Symbol FieldCode", () => {
+    test("toTsExpression() with ・", () => {
+        expect(
+            new StringField("・", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"・" : {
+    type: "SINGLE_LINE";
+    value: string;
+    error?: string;
+};`.trim()
+        );
+    });
+    test("toTsExpression() with ￥", () => {
+        expect(
+            new StringField("￥", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"￥" : {
+    type: "SINGLE_LINE";
+    value: string;
+    error?: string;
+};`.trim()
+        );
+    });
+    test("toTsExpression() with ＿", () => {
+        expect(
+            new StringField("＿", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"＿" : {
+    type: "SINGLE_LINE";
+    value: string;
+    error?: string;
+};`.trim()
+        );
+    });
+    test("toTsExpression() with ＄", () => {
+        expect(
+            new StringField("＄", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"＄" : {
     type: "SINGLE_LINE";
     value: string;
     disabled?: boolean;
@@ -33,7 +92,7 @@ describe("StringListField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "CHECK_BOX";
     value: string[];
     disabled?: boolean;
@@ -51,7 +110,7 @@ describe("EntityListField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "USER_SELECT";
     value: {code: string, name: string}[];
     disabled?: boolean;
@@ -74,7 +133,7 @@ describe("SubTableField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "SUBTABLE";
     value: {
         id: string;
@@ -96,7 +155,7 @@ describe("FileField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "FILE";
     value: {
         contentType: string;
@@ -143,31 +202,31 @@ describe("FieldGroup", () => {
                 .trim()
         ).toEqual(
             `
-fieldName1 : {
+"fieldName1" : {
     type: "SINGLE_STRING_LINE";
     value: string;
     disabled?: boolean;
     error?: string;
 };
-fieldName2 : {
+"fieldName2" : {
     type: "SINGLE_STRING_LINE";
     value: string;
     disabled?: boolean;
     error?: string;
 };
-fieldName3 : {
+"fieldName3" : {
     type: "MULTI_CHECK";
     value: string[];
     disabled?: boolean;
     error?: string;
 };
-fieldName4 : {
+"fieldName4" : {
     type: "USER_SELECT";
     value: {code: string, name: string}[];
     disabled?: boolean;
     error?: string;
 };
-fieldName5 : {
+"fieldName5" : {
     type: "FILE";
     value: {
         contentType: string;
