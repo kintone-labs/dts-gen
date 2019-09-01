@@ -18,6 +18,7 @@ describe("StringField", () => {
 fieldName : {
     type: "SINGLE_LINE";
     value: string;
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -35,6 +36,7 @@ describe("StringListField", () => {
 fieldName : {
     type: "CHECK_BOX";
     value: string[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -52,6 +54,7 @@ describe("EntityListField", () => {
 fieldName : {
     type: "USER_SELECT";
     value: {code: string, name: string}[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -79,6 +82,7 @@ fieldName : {
             
         }
     }[];
+    disabled?: boolean;
 };`.trim()
         );
     });
@@ -100,6 +104,7 @@ fieldName : {
         name: string;
         size: string;
     }[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -141,21 +146,25 @@ describe("FieldGroup", () => {
 fieldName1 : {
     type: "SINGLE_STRING_LINE";
     value: string;
+    disabled?: boolean;
     error?: string;
 };
 fieldName2 : {
     type: "SINGLE_STRING_LINE";
     value: string;
+    disabled?: boolean;
     error?: string;
 };
 fieldName3 : {
     type: "MULTI_CHECK";
     value: string[];
+    disabled?: boolean;
     error?: string;
 };
 fieldName4 : {
     type: "USER_SELECT";
     value: {code: string, name: string}[];
+    disabled?: boolean;
     error?: string;
 };
 fieldName5 : {
@@ -166,6 +175,7 @@ fieldName5 : {
         name: string;
         size: string;
     }[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );

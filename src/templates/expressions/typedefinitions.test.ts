@@ -4,12 +4,9 @@ import {
 } from "./typedefinitions";
 import {
     FieldGroup,
-    StringField,
     SubTableField,
-    StringListField,
-    EntityListField,
-    FileField,
     UserField,
+    StringFieldInSavedRecord,
 } from "./fields";
 
 describe("TypeDefinition", () => {
@@ -55,12 +52,12 @@ interface TestType {
 });
 
 describe("SavedTypeDefinition", () => {
-    class TestStringField extends StringField {
+    class TestStringFieldInSavedRecord extends StringFieldInSavedRecord {
         constructor() {
             super(null, null);
         }
         tsExpression(): string {
-            return "// StringField";
+            return "// StringFieldInSavedRecord";
         }
     }
     class TestUserField extends UserField {
@@ -76,7 +73,7 @@ describe("SavedTypeDefinition", () => {
             new SavedTypeDefinition(
                 "TestType",
                 [new TestUserField()],
-                [new TestStringField()]
+                [new TestStringFieldInSavedRecord()]
             )
                 .tsExpression()
                 .trim()
@@ -92,7 +89,7 @@ interface SavedTestType extends TestType {
         value: string;
     };
     // UserField
-    // StringField
+    // StringFieldInSavedRecord
 }`.trim()
         );
     });

@@ -29,13 +29,13 @@ describe("renderAsFile", () => {
             .readFileSync("./resources/testfield.d.ts")
             .toString()
             .trim()
-            .replace(/\r?\n/g, "");
+            .replace(/(\r?\n|\s+)/g, "");
 
         const actual = fs
             .readFileSync(TEMP_TEST_TYPEDEF)
             .toString()
             .trim()
-            .replace(/\r?\n/g, "");
+            .replace(/(\r?\n|\s+)/g, "");
 
         expect(actual.toString().trim()).toEqual(
             expected.toString().trim()

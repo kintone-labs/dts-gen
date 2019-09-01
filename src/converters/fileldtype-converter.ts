@@ -9,6 +9,7 @@ import { objectValues } from "../utils/objectvalues";
 type FieldTypesOrSubTableFieldTypes =
     | FieldType[]
     | SubTableFieldType[];
+
 const SIMPLE_VALUE_TYPES = [
     "SINGLE_LINE_TEXT",
     "MULTI_LINE_TEXT",
@@ -17,7 +18,6 @@ const SIMPLE_VALUE_TYPES = [
     "NUMBER",
     "DATETIME",
     "TIME",
-    "RECORD_NUMBER",
     "DROP_DOWN",
     "LINK",
     "CALC",
@@ -25,6 +25,7 @@ const SIMPLE_VALUE_TYPES = [
 ];
 
 const SIMPLE_VALUE_IN_SAVED_RECORD = [
+    "RECORD_NUMBER",
     "CREATED_TIME",
     "UPDATED_TIME",
 ];
@@ -115,6 +116,8 @@ function convertFieldTypesToFieldTypeGroups(
         SIMPLE_VALUE_TYPES,
         fieldTypes
     );
+    // eslint-disable-next-line no-console
+    console.log(stringFields);
     const stringFieldsInSavedRecord = selectFieldsTypesIn(
         SIMPLE_VALUE_IN_SAVED_RECORD,
         fieldTypes

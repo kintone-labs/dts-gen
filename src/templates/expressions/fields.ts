@@ -32,6 +32,7 @@ export class StringField implements TsExpression {
 ${this.fieldName} : {
     type: "${this.fieldType}";
     value: string;
+    disabled?: boolean;
     error?: string;
 };`.trim();
     }
@@ -47,6 +48,24 @@ export class StringListField implements TsExpression {
 ${this.fieldName} : {
     type: "${this.fieldType}";
     value: string[];
+    disabled?: boolean;
+    error?: string;
+};`.trim();
+    }
+}
+
+export class StringFieldInSavedRecord
+    implements TsExpression {
+    constructor(
+        private fieldName: string,
+        private fieldType: string
+    ) {}
+
+    tsExpression(): string {
+        return `
+${this.fieldName} : {
+    type: "${this.fieldType}";
+    value: string;
     error?: string;
 };`.trim();
     }
@@ -65,6 +84,7 @@ export class UserField implements TsExpression {
         return `
 ${this.fieldName} : {
     type: "${this.fieldType}";
+    disabled?: boolean;
     value: {code: string, name: string}; 
 };`.trim();
     }
@@ -80,6 +100,7 @@ export class EntityListField implements TsExpression {
 ${this.fieldName} : {
     type: "${this.fieldType}";
     value: {code: string, name: string}[];
+    disabled?: boolean;
     error?: string;
 };`.trim();
     }
@@ -100,6 +121,7 @@ ${this.fieldName} : {
         name: string;
         size: string;
     }[];
+    disabled?: boolean;
     error?: string;
 };`.trim();
     }
@@ -121,6 +143,7 @@ ${this.fieldName} : {
             ${this.fieldGroup.tsExpression()}
         }
     }[];
+    disabled?: boolean;
 };`.trim();
     }
 }
