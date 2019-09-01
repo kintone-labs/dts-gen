@@ -1,11 +1,12 @@
 {
     "name": "@kintone/dts-gen",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Types for kintone js api and Types generating tools",
     "main": "dist/index.js",
     "scripts": {
         "build": "bin/npm-build.sh",
         "tsc": "tsc",
+        "tsc:check": "tsc --noEmit",
         "clean": "rm -rfv dist",
         "lint:fix": "eslint --fix src/**/*.ts",
         "lint": "eslint src/**/*.ts",
@@ -22,35 +23,35 @@
         "build:integration": "webpack --mode development --config webpack.config.js"
     },
     "engines": {
-        "node": ">=8"
+        "node": ">=8.6"
     },
     "author": "Tomoya Yokota",
     "license": "MIT",
     "dependencies": {
         "axios": "^0.19.0",
-        "commander": "^2.19.0",
-        "form-data": "^2.3.3",
+        "commander": "^2.20.0",
+        "form-data": "^2.5.1",
         "lodash": "^4.17.15",
-        "prettier": "^1.16.4"
+        "prettier": "^1.18.2"
     },
     "devDependencies": {
         "@types/es6-promise": "^3.3.0",
-        "@types/jest": "^24.0.15",
-        "@types/lodash": "^4.14.136",
-        "@types/node": "^10.14.13",
-        "@types/nunjucks": "^3.1.1",
-        "eslint": "^5.15.3",
-        "eslint-plugin-jest": "^22.3.2",
+        "@types/jest": "^24.0.18",
+        "@types/lodash": "^4.14.138",
+        "@types/node": "^10.14.17",
+        "@types/nunjucks": "^3.1.2",
+        "@typescript-eslint/parser": "^2.0.0",
+        "eslint": "^6.2.0",
+        "eslint-plugin-jest": "^22.15.0",
         "eslint-plugin-typescript": "^0.14.0",
-        "jest": "^24.7.1",
+        "jest": "^24.9.0",
         "npm-run-all": "^4.1.5",
-        "standard-version": "^5.0.2",
+        "standard-version": "^7.0.0",
         "ts-jest": "^24.0.2",
-        "ts-loader": "^5.3.3",
-        "typescript": "3.1.1",
-        "typescript-eslint-parser": "^21.0.2",
-        "webpack": "^4.29.6",
-        "webpack-cli": "^3.2.3"
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.6.2",
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.7"
     },
     "bin": {
         "kintone-dts-gen": "dist/index.js"

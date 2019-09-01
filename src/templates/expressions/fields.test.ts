@@ -18,6 +18,7 @@ describe("StringField", () => {
 "fieldName" : {
     type: "SINGLE_LINE";
     value: string;
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -35,6 +36,7 @@ describe("StringField with Full Width Symbol FieldCode", () => {
 "・" : {
     type: "SINGLE_LINE";
     value: string;
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -49,6 +51,7 @@ describe("StringField with Full Width Symbol FieldCode", () => {
 "￥" : {
     type: "SINGLE_LINE";
     value: string;
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -63,6 +66,7 @@ describe("StringField with Full Width Symbol FieldCode", () => {
 "＿" : {
     type: "SINGLE_LINE";
     value: string;
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
