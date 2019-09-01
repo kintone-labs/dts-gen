@@ -24,7 +24,7 @@ export function convertToTsExpression({
             new F.SubTableField(
                 f.code,
                 f.type,
-                convertToFieldGroup(f.fields)
+                convertToFieldGroup(f.fields, true)
             )
     );
 
@@ -63,18 +63,29 @@ interface ConvertToFieldGroupInput {
     fileTypeFields: FieldType[];
 }
 function convertToFieldGroup(
-    input: ConvertToFieldGroupInput
+    input: ConvertToFieldGroupInput,
+    forSubtable: boolean = false
 ): F.FieldGroup {
     const stringFields = input.stringFields.map(
-        f => new F.StringField(f.code, f.type)
+        f => new F.StringField(f.code, f.type, forSubtable)
     );
 
     const stringListFields = input.stringListFields.map(
-        f => new F.StringListField(f.code, f.type)
+        f =>
+            new F.StringListField(
+                f.code,
+                f.type,
+                forSubtable
+            )
     );
 
     const entityFields = input.entityListFields.map(
-        f => new F.EntityListField(f.code, f.type)
+        f =>
+            new F.EntityListField(
+                f.code,
+                f.type,
+                forSubtable
+            )
     );
 
     const fileFields = input.fileTypeFields.map(

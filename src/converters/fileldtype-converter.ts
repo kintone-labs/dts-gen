@@ -116,8 +116,6 @@ function convertFieldTypesToFieldTypeGroups(
         SIMPLE_VALUE_TYPES,
         fieldTypes
     );
-    // eslint-disable-next-line no-console
-    console.log(stringFields);
     const stringFieldsInSavedRecord = selectFieldsTypesIn(
         SIMPLE_VALUE_IN_SAVED_RECORD,
         fieldTypes
