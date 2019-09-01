@@ -1,71 +1,71 @@
 {
-  "name": "@kintone/dts-gen",
-  "version": "2.0.0",
-  "description": "Types for kintone js api and Types generating tools",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "bin/npm-build.sh",
-    "tsc": "tsc",
-    "clean": "rm -rfv dist",
-    "lint:fix": "eslint --fix src/**/*.ts",
-    "lint": "eslint src/**/*.ts",
-    "demo": "node dist/index.js --demo --type-name DemoFields -o demo-fields.d.ts",
-    "generate": "node dist/index.js --host https://****.cybozu.com --username *** --password *** --app-id ***",
-    "gh-pages": "git push origin master:gh-pages",
-    "help": "node dist/index.js --help",
-    "release": "run-s lint test clean build && standard-version && npm run gh-pages",
-    "release:dryrun": "standard-version --dry-run",
-    "test": "jest",
-    "prettier:base": "prettier --parser typescript",
-    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
-    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "build:integration": "webpack --mode development --config webpack.config.js"
-  },
-  "engines": {
-    "node": ">=8"
-  },
-  "author": "Tomoya Yokota",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.19.0",
-    "commander": "^2.19.0",
-    "form-data": "^2.3.3",
-    "lodash": "^4.17.15",
-    "prettier": "^1.16.4"
-  },
-  "devDependencies": {
-    "@types/es6-promise": "^3.3.0",
-    "@types/jest": "^24.0.15",
-    "@types/lodash": "^4.14.136",
-    "@types/node": "^10.14.13",
-    "@types/nunjucks": "^3.1.1",
-    "eslint": "^5.15.3",
-    "eslint-plugin-jest": "^22.3.2",
-    "eslint-plugin-typescript": "^0.14.0",
-    "jest": "^24.7.1",
-    "npm-run-all": "^4.1.5",
-    "standard-version": "^5.0.2",
-    "ts-jest": "^24.0.2",
-    "ts-loader": "^5.3.3",
-    "typescript": "^3.4.5",
-    "typescript-eslint-parser": "^21.0.2",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
-  },
-  "bin": {
-    "kintone-dts-gen": "dist/index.js"
-  },
-  "files": [
-    "dist",
-    "kintone.d.ts"
-  ],
-  "homepage": "https://github.com/kintone/dts-gen",
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@github.com/kintone/dts-gen.git"
-  },
-  "bugs": "https://github.com/kintone/dts-gen/issues",
-  "keywords": [
-    "kintone"
-  ]
+    "name": "@kintone/dts-gen",
+    "version": "2.0.0",
+    "description": "Types for kintone js api and Types generating tools",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "bin/npm-build.sh",
+        "tsc": "tsc",
+        "clean": "rm -rfv dist",
+        "lint:fix": "eslint --fix src/**/*.ts",
+        "lint": "eslint src/**/*.ts",
+        "demo": "node dist/index.js --demo --type-name DemoFields -o demo-fields.d.ts",
+        "generate": "node dist/index.js --host https://****.cybozu.com --username *** --password *** --app-id ***",
+        "gh-pages": "git push origin master:gh-pages",
+        "help": "node dist/index.js --help",
+        "release": "run-s lint test clean build && standard-version && npm run gh-pages",
+        "release:dryrun": "standard-version --dry-run",
+        "test": "jest",
+        "prettier:base": "prettier --parser typescript",
+        "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
+        "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
+        "build:integration": "webpack --mode development --config webpack.config.js"
+    },
+    "engines": {
+        "node": ">=8"
+    },
+    "author": "Tomoya Yokota",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.19.0",
+        "commander": "^2.19.0",
+        "form-data": "^2.3.3",
+        "lodash": "^4.17.15",
+        "prettier": "^1.16.4"
+    },
+    "devDependencies": {
+        "@types/es6-promise": "^3.3.0",
+        "@types/jest": "^24.0.15",
+        "@types/lodash": "^4.14.136",
+        "@types/node": "^10.14.13",
+        "@types/nunjucks": "^3.1.1",
+        "eslint": "^5.15.3",
+        "eslint-plugin-jest": "^22.3.2",
+        "eslint-plugin-typescript": "^0.14.0",
+        "jest": "^24.7.1",
+        "npm-run-all": "^4.1.5",
+        "standard-version": "^5.0.2",
+        "ts-jest": "^24.0.2",
+        "ts-loader": "^5.3.3",
+        "typescript": "3.1.1",
+        "typescript-eslint-parser": "^21.0.2",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.2.3"
+    },
+    "bin": {
+        "kintone-dts-gen": "dist/index.js"
+    },
+    "files": [
+        "dist",
+        "kintone.d.ts"
+    ],
+    "homepage": "https://github.com/kintone/dts-gen",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com/kintone/dts-gen.git"
+    },
+    "bugs": "https://github.com/kintone/dts-gen/issues",
+    "keywords": [
+        "kintone"
+    ]
 }
