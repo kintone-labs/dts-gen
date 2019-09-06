@@ -115,26 +115,31 @@ declare namespace kintone.types {
           Text_Table: {
             type: "SINGLE_LINE_TEXT";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Rich_text_Table: {
             type: "RICH_TEXT";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Text_area_Table: {
             type: "MULTI_LINE_TEXT";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Number_Table: {
             type: "NUMBER";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Calculated_Table: {
             type: "CALC";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
         };
@@ -149,41 +154,49 @@ declare namespace kintone.types {
           Radio_button_Table: {
             type: "RADIO_BUTTON";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Drop_down_Table: {
             type: "DROP_DOWN";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Date_Table: {
             type: "DATE";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Time_Table: {
             type: "TIME";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Date_and_time_Table: {
             type: "DATETIME";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Link_Table: {
             type: "LINK";
             value: string;
+            disabled?: boolean;
             error?: string;
           };
           Check_box_Table: {
             type: "CHECK_BOX";
             value: string[];
+            disabled?: boolean;
             error?: string;
           };
           Multi_choice_Table: {
             type: "MULTI_SELECT";
             value: string[];
+            disabled?: boolean;
             error?: string;
           };
 

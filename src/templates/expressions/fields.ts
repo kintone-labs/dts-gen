@@ -24,8 +24,7 @@ ${toTsExpressions(this.fileFields)}
 export class StringField implements TsExpression {
     constructor(
         private fieldName: string,
-        private fieldType: string,
-        private forSubtable: boolean = false
+        private fieldType: string
     ) {}
 
     tsExpression(): string {
@@ -33,9 +32,8 @@ export class StringField implements TsExpression {
 "${this.fieldName}" : {
     type: "${this.fieldType}";
     value: string;
-${
-    !this.forSubtable ? `    disabled?: boolean;\n` : ""
-}    error?: string;
+    disabled?: boolean;
+    error?: string;
 };`.trim();
     }
 }
@@ -43,17 +41,15 @@ ${
 export class StringListField implements TsExpression {
     constructor(
         private fieldName: string,
-        private fieldType: string,
-        private forSubtable: boolean = false
+        private fieldType: string
     ) {}
     tsExpression(): string {
         return `
 "${this.fieldName}" : {
     type: "${this.fieldType}";
     value: string[];
-${
-    !this.forSubtable ? `    disabled?: boolean;\n` : ""
-}    error?: string;
+    disabled?: boolean;
+    error?: string;
 };`.trim();
     }
 }
@@ -96,17 +92,15 @@ export class UserField implements TsExpression {
 export class EntityListField implements TsExpression {
     constructor(
         private fieldName: string,
-        private fieldType: string,
-        private forSubtable: boolean = false
+        private fieldType: string
     ) {}
     tsExpression(): string {
         return `
 "${this.fieldName}" : {
     type: "${this.fieldType}";
     value: {code: string, name: string}[];
-${
-    !this.forSubtable ? `    disabled?: boolean;\n` : ""
-}    error?: string;
+    disabled?: boolean;
+    error?: string;
 };`.trim();
     }
 }
