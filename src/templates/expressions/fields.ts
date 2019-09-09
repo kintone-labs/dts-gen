@@ -63,7 +63,7 @@ export class StringFieldInSavedRecord
 
     tsExpression(): string {
         return `
-${this.fieldName} : {
+"${this.fieldName}" : {
     type: "${this.fieldType}";
     value: string;
     error?: string;
