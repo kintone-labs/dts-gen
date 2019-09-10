@@ -144,7 +144,6 @@ declare namespace kintone.types {
           };
         };
       }[];
-      disabled?: boolean;
     };
     Table_0: {
       type: "SUBTABLE";
@@ -213,7 +212,6 @@ declare namespace kintone.types {
           };
         };
       }[];
-      disabled?: boolean;
     };
   }
   interface SavedTestFields extends TestFields {

@@ -145,7 +145,6 @@ describe("SubTableField", () => {
             
         }
     }[];
-    disabled?: boolean;
 };`.trim()
         );
     });

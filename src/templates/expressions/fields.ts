@@ -142,7 +142,6 @@ export class SubTableField implements TsExpression {
             ${this.fieldGroup.tsExpression()}
         }
     }[];
-    disabled?: boolean;
 };`.trim();
     }
 }
