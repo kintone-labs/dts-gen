@@ -24,12 +24,6 @@ declare namespace kintone.types {
       disabled?: boolean;
       error?: string;
     };
-    Calculated: {
-      type: "CALC";
-      value: string;
-      disabled?: boolean;
-      error?: string;
-    };
     Radio_button: {
       type: "RADIO_BUTTON";
       value: string;
@@ -64,6 +58,11 @@ declare namespace kintone.types {
       type: "LINK";
       value: string;
       disabled?: boolean;
+      error?: string;
+    };
+    Calculated: {
+      type: "CALC";
+      value: string;
       error?: string;
     };
     Check_box: {
@@ -139,7 +138,6 @@ declare namespace kintone.types {
           Calculated_Table: {
             type: "CALC";
             value: string;
-            disabled?: boolean;
             error?: string;
           };
         };

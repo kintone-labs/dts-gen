@@ -5,6 +5,7 @@ import {
     SubTableField,
     FileField,
     FieldGroup,
+    CalculatedField,
 } from "./fields";
 
 describe("StringField", () => {
@@ -126,7 +127,13 @@ describe("EntityListField", () => {
 
 describe("SubTableField", () => {
     test("toTsExpression()", () => {
-        const fieldGroup = new FieldGroup([], [], [], []);
+        const fieldGroup = new FieldGroup(
+            [],
+            [],
+            [],
+            [],
+            []
+        );
         expect(
             new SubTableField(
                 "fieldName",
@@ -187,19 +194,20 @@ describe("FieldGroup", () => {
                         "SINGLE_STRING_LINE"
                     ),
                 ],
+                [new CalculatedField("fieldName3", "CALC")],
                 [
                     new StringListField(
-                        "fieldName3",
+                        "fieldName4",
                         "MULTI_CHECK"
                     ),
                 ],
                 [
                     new EntityListField(
-                        "fieldName4",
+                        "fieldName5",
                         "USER_SELECT"
                     ),
                 ],
-                [new FileField("fieldName5", "FILE")]
+                [new FileField("fieldName6", "FILE")]
             )
                 .tsExpression()
                 .trim()
@@ -218,18 +226,23 @@ describe("FieldGroup", () => {
     error?: string;
 };
 "fieldName3" : {
+    type: "CALC";
+    value: string;
+    error?: string;
+};
+"fieldName4" : {
     type: "MULTI_CHECK";
     value: string[];
     disabled?: boolean;
     error?: string;
 };
-"fieldName4" : {
+"fieldName5" : {
     type: "USER_SELECT";
     value: {code: string, name: string}[];
     disabled?: boolean;
     error?: string;
 };
-"fieldName5" : {
+"fieldName6" : {
     type: "FILE";
     value: {
         contentType: string;

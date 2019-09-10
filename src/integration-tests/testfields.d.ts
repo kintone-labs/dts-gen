@@ -36,7 +36,6 @@ declare namespace kintone.types {
         Calculated: {
             type: "CALC";
             value: string;
-            disabled?: boolean;
             error?: string;
         };
 
