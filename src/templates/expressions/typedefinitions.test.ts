@@ -12,7 +12,7 @@ import {
 describe("TypeDefinition", () => {
     class TestFieldGroup extends FieldGroup {
         constructor() {
-            super(null, null, null, null);
+            super(null, null, null, null, null);
         }
         tsExpression(): string {
             return "// FieldGroup";
