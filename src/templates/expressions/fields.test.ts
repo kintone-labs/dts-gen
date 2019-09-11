@@ -5,6 +5,7 @@ import {
     SubTableField,
     FileField,
     FieldGroup,
+    CalculatedField,
 } from "./fields";
 
 describe("StringField", () => {
@@ -15,9 +16,73 @@ describe("StringField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "SINGLE_LINE";
     value: string;
+    disabled?: boolean;
+    error?: string;
+};`.trim()
+        );
+    });
+});
+
+describe("StringField with Full Width Symbol FieldCode", () => {
+    test("toTsExpression() with ・", () => {
+        expect(
+            new StringField("・", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"・" : {
+    type: "SINGLE_LINE";
+    value: string;
+    disabled?: boolean;
+    error?: string;
+};`.trim()
+        );
+    });
+    test("toTsExpression() with ￥", () => {
+        expect(
+            new StringField("￥", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"￥" : {
+    type: "SINGLE_LINE";
+    value: string;
+    disabled?: boolean;
+    error?: string;
+};`.trim()
+        );
+    });
+    test("toTsExpression() with ＿", () => {
+        expect(
+            new StringField("＿", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"＿" : {
+    type: "SINGLE_LINE";
+    value: string;
+    disabled?: boolean;
+    error?: string;
+};`.trim()
+        );
+    });
+    test("toTsExpression() with ＄", () => {
+        expect(
+            new StringField("＄", "SINGLE_LINE")
+                .tsExpression()
+                .trim()
+        ).toEqual(
+            `
+"＄" : {
+    type: "SINGLE_LINE";
+    value: string;
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -32,9 +97,10 @@ describe("StringListField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "CHECK_BOX";
     value: string[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -49,9 +115,10 @@ describe("EntityListField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "USER_SELECT";
     value: {code: string, name: string}[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -60,7 +127,13 @@ fieldName : {
 
 describe("SubTableField", () => {
     test("toTsExpression()", () => {
-        const fieldGroup = new FieldGroup([], [], [], []);
+        const fieldGroup = new FieldGroup(
+            [],
+            [],
+            [],
+            [],
+            []
+        );
         expect(
             new SubTableField(
                 "fieldName",
@@ -71,7 +144,7 @@ describe("SubTableField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "SUBTABLE";
     value: {
         id: string;
@@ -92,7 +165,7 @@ describe("FileField", () => {
                 .trim()
         ).toEqual(
             `
-fieldName : {
+"fieldName" : {
     type: "FILE";
     value: {
         contentType: string;
@@ -100,6 +173,7 @@ fieldName : {
         name: string;
         size: string;
     }[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );
@@ -120,45 +194,55 @@ describe("FieldGroup", () => {
                         "SINGLE_STRING_LINE"
                     ),
                 ],
+                [new CalculatedField("fieldName3", "CALC")],
                 [
                     new StringListField(
-                        "fieldName3",
+                        "fieldName4",
                         "MULTI_CHECK"
                     ),
                 ],
                 [
                     new EntityListField(
-                        "fieldName4",
+                        "fieldName5",
                         "USER_SELECT"
                     ),
                 ],
-                [new FileField("fieldName5", "FILE")]
+                [new FileField("fieldName6", "FILE")]
             )
                 .tsExpression()
                 .trim()
         ).toEqual(
             `
-fieldName1 : {
+"fieldName1" : {
     type: "SINGLE_STRING_LINE";
+    value: string;
+    disabled?: boolean;
+    error?: string;
+};
+"fieldName2" : {
+    type: "SINGLE_STRING_LINE";
+    value: string;
+    disabled?: boolean;
+    error?: string;
+};
+"fieldName3" : {
+    type: "CALC";
     value: string;
     error?: string;
 };
-fieldName2 : {
-    type: "SINGLE_STRING_LINE";
-    value: string;
-    error?: string;
-};
-fieldName3 : {
+"fieldName4" : {
     type: "MULTI_CHECK";
     value: string[];
+    disabled?: boolean;
     error?: string;
 };
-fieldName4 : {
+"fieldName5" : {
     type: "USER_SELECT";
     value: {code: string, name: string}[];
+    disabled?: boolean;
     error?: string;
 };
-fieldName5 : {
+"fieldName6" : {
     type: "FILE";
     value: {
         contentType: string;
@@ -166,6 +250,7 @@ fieldName5 : {
         name: string;
         size: string;
     }[];
+    disabled?: boolean;
     error?: string;
 };`.trim()
         );

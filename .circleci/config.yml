@@ -16,17 +16,20 @@ commands:
             - node_modules
           key: v1-dependencies-{{ checksum "package-lock.json" }}
       # run tests!
+      - run: npm run tsc:check
       - run: npm run lint
+      - run: npm run prettier:check
+      - run: npm run build:integration
       - run: npm test
 jobs:
   node-v8:
     docker:
-      - image: circleci/node:8@sha256:1a6c88c54ffbd3f63da73b5110c477f5d33d1bb7bd23201c71183289430a8624
+      - image: circleci/node:8@sha256:9a94cc27a3aff5621842fc2e3dfb93eb110fbc1e97f36d7597191fe16dc455c3
     steps:
       - run-npm-test
   node-v10:
     docker:
-      - image: circleci/node:10@sha256:84162796bd0d3fa0ce545515401efb7e2072dc9abf6155c919c1591614b1e8fc
+      - image: circleci/node:10@sha256:350b0c8c9094a5ff7090b634ac296d81ce19eb57b6c2b8ed6f17cea757529abe
     steps:
       - run-npm-test
   node-v12:
