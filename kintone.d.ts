@@ -231,7 +231,7 @@ declare namespace kintone {
     }
 
     namespace portal {
-        function getContentSpaceElement(): Element | null;
+        function getContentSpaceElement(): HTMLElement | null;
     }
 
     interface LoginUser {
