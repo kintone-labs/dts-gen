@@ -228,7 +228,7 @@ declare namespace kintone {
                     callback: (resp: any) => void,
                     error: (err: any) => void
                 ): void;
-            }    
+            }
         }
     }
 
