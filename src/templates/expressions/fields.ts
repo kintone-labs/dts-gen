@@ -108,8 +108,7 @@ export class EntityListField implements TsExpression {
 export class FileField implements TsExpression {
     constructor(private fieldName: string) {}
     tsExpression(): string {
-        return `
-"${this.fieldName}" : kintone.types.fields.File;`.trim();
+        return `"${this.fieldName}" : kintone.types.fields.File;`.trim();
     }
 }
 
