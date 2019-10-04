@@ -80,14 +80,8 @@ describe("SavedTypeDefinition", () => {
         ).toEqual(
             `
 interface SavedTestType extends TestType {
-    $id : {
-        type: \"__ID__\";
-        value: string;
-    };
-    $revision: {
-        type: \"__REVISION__\";
-        value: string;
-    };
+    $id : kintone.types.fields.Id;
+    $revision: kintone.types.fields.Revision;
     // UserField
     // StringFieldInSavedRecord
 }`.trim()

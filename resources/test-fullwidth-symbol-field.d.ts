@@ -1,61 +1,17 @@
 declare namespace kintone.types {
   interface TestFields {
-    "・": {
-      type: "SINGLE_LINE_TEXT";
-      value: string;
-      disabled?: boolean;
-      error?: string;
-    };
-    "＄": {
-      type: "SINGLE_LINE_TEXT";
-      value: string;
-      disabled?: boolean;
-      error?: string;
-    };
-    "￥": {
-      type: "SINGLE_LINE_TEXT";
-      value: string;
-      disabled?: boolean;
-      error?: string;
-    };
-    "＿": {
-      type: "SINGLE_LINE_TEXT";
-      value: string;
-      disabled?: boolean;
-      error?: string;
-    };
+    "・": kintone.types.fields.SingleLineText;
+    "＄": kintone.types.fields.SingleLineText;
+    "￥": kintone.types.fields.SingleLineText;
+    "＿": kintone.types.fields.SingleLineText;
   }
   interface SavedTestFields extends TestFields {
-    $id: {
-      type: "__ID__";
-      value: string;
-    };
-    $revision: {
-      type: "__REVISION__";
-      value: string;
-    };
-    Updated_by: {
-      type: "MODIFIER";
-      value: { code: string; name: string };
-    };
-    Created_by: {
-      type: "CREATOR";
-      value: { code: string; name: string };
-    };
-    Record_number: {
-      type: "RECORD_NUMBER";
-      value: string;
-      error?: string;
-    };
-    Updated_datetime: {
-      type: "UPDATED_TIME";
-      value: string;
-      error?: string;
-    };
-    Created_datetime: {
-      type: "CREATED_TIME";
-      value: string;
-      error?: string;
-    };
+    $id: kintone.types.fields.Id;
+    $revision: kintone.types.fields.Revision;
+    Updated_by: kintone.types.fields.Modifier;
+    Created_by: kintone.types.fields.Creator;
+    Record_number: kintone.types.fields.RecordNumber;
+    Updated_datetime: kintone.types.fields.UpdatedTime;
+    Created_datetime: kintone.types.fields.CreatedTime;
   }
 }

@@ -2,6 +2,7 @@ import {
     TsExpression,
     toTsExpressions,
 } from "./expression";
+import { KintoneFieldTypeToTypeScriptFieldTypeNameConverter as FieldTypeConverter } from "./typescriptfieldtypeconverter";
 
 export class FieldGroup implements TsExpression {
     constructor(
@@ -30,29 +31,19 @@ export class StringField implements TsExpression {
     ) {}
 
     tsExpression(): string {
-        return `
-"${this.fieldName}" : {
-    type: "${this.fieldType}";
-    value: string;
-    disabled?: boolean;
-    error?: string;
-};`.trim();
+        return `"${
+            this.fieldName
+        }" : ${FieldTypeConverter.convertStringField(
+            this.fieldType
+        )};`.trim();
     }
 }
 
 export class CalculatedField implements TsExpression {
-    constructor(
-        private fieldName: string,
-        private fieldType: string
-    ) {}
+    constructor(private fieldName: string) {}
 
     tsExpression(): string {
-        return `
-"${this.fieldName}" : {
-    type: "${this.fieldType}";
-    value: string;
-    error?: string;
-};`.trim();
+        return `"${this.fieldName}" : kintone.types.fields.Calc;`.trim();
     }
 }
 
@@ -62,13 +53,11 @@ export class StringListField implements TsExpression {
         private fieldType: string
     ) {}
     tsExpression(): string {
-        return `
-"${this.fieldName}" : {
-    type: "${this.fieldType}";
-    value: string[];
-    disabled?: boolean;
-    error?: string;
-};`.trim();
+        return `"${
+            this.fieldName
+        }" : ${FieldTypeConverter.convertStringListField(
+            this.fieldType
+        )};`.trim();
     }
 }
 
@@ -80,12 +69,11 @@ export class StringFieldInSavedRecord
     ) {}
 
     tsExpression(): string {
-        return `
-"${this.fieldName}" : {
-    type: "${this.fieldType}";
-    value: string;
-    error?: string;
-};`.trim();
+        return `"${
+            this.fieldName
+        }" : ${FieldTypeConverter.convertFieldsInSavedRecord(
+            this.fieldType
+        )};`;
     }
 }
 
@@ -94,16 +82,12 @@ export class UserField implements TsExpression {
         private fieldName: string,
         private fieldType: string
     ) {}
-    /**
-     * field type of UserField is CREATOR,MODIFIER.
-     * So error property not exists.
-     */
     tsExpression(): string {
-        return `
-"${this.fieldName}" : {
-    type: "${this.fieldType}";
-    value: {code: string, name: string}; 
-};`.trim();
+        return `"${
+            this.fieldName
+        }" : ${FieldTypeConverter.convertUserField(
+            this.fieldType
+        )};`.trim();
     }
 }
 
@@ -113,34 +97,19 @@ export class EntityListField implements TsExpression {
         private fieldType: string
     ) {}
     tsExpression(): string {
-        return `
-"${this.fieldName}" : {
-    type: "${this.fieldType}";
-    value: {code: string, name: string}[];
-    disabled?: boolean;
-    error?: string;
-};`.trim();
+        return `"${
+            this.fieldName
+        }" : ${FieldTypeConverter.convertEntityListField(
+            this.fieldType
+        )};`.trim();
     }
 }
 
 export class FileField implements TsExpression {
-    constructor(
-        private fieldName: string,
-        private fieldType: string
-    ) {}
+    constructor(private fieldName: string) {}
     tsExpression(): string {
         return `
-"${this.fieldName}" : {
-    type: "${this.fieldType}";
-    value: {
-        contentType: string;
-        fileKey: string;
-        name: string;
-        size: string;
-    }[];
-    disabled?: boolean;
-    error?: string;
-};`.trim();
+"${this.fieldName}" : kintone.types.fields.File;`.trim();
     }
 }
 

@@ -34,14 +34,8 @@ export class SavedTypeDefinition implements TsExpression {
     tsExpression(): string {
         return `
 interface Saved${this.typeName} extends ${this.typeName} {
-    $id : {
-        type: "__ID__";
-        value: string;
-    };
-    $revision: {
-        type: "__REVISION__";
-        value: string;
-    };
+    $id : kintone.types.fields.Id;
+    $revision: kintone.types.fields.Revision;
     ${toTsExpressions(this.userFields)}
     ${toTsExpressions(this.stringFieldsInSavedRecord)}
 }`.trim();

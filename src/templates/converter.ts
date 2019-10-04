@@ -71,7 +71,7 @@ function convertToFieldGroup(
     );
 
     const calculatedFields = input.calculatedFields.map(
-        f => new F.CalculatedField(f.code, f.type)
+        f => new F.CalculatedField(f.code)
     );
 
     const stringListFields = input.stringListFields.map(
@@ -83,7 +83,7 @@ function convertToFieldGroup(
     );
 
     const fileFields = input.fileTypeFields.map(
-        f => new F.FileField(f.code, f.type)
+        f => new F.FileField(f.code)
     );
 
     return new F.FieldGroup(
