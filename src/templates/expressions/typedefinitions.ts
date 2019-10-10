@@ -1,8 +1,7 @@
 import {
     FieldGroup,
     SubTableField,
-    UserField,
-    StringFieldInSavedRecord,
+    ConvertibleByKintoneTypeField,
 } from "./fields";
 import {
     TsExpression,
@@ -27,8 +26,8 @@ interface ${this.typeName} {
 export class SavedTypeDefinition implements TsExpression {
     constructor(
         private typeName: string,
-        private userFields: UserField[],
-        private stringFieldsInSavedRecord: StringFieldInSavedRecord[]
+        private userFields: ConvertibleByKintoneTypeField[],
+        private stringFieldsInSavedRecord: ConvertibleByKintoneTypeField[]
     ) {}
 
     tsExpression(): string {

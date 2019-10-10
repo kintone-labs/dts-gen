@@ -35,11 +35,19 @@ export function convertToTsExpression({
     );
 
     const userFields = fieldTypeGroups.userFieldsInSavedRecord.map(
-        f => new F.UserField(f.code, f.type)
+        f =>
+            new F.ConvertibleByKintoneTypeField(
+                f.code,
+                f.type
+            )
     );
 
     const stringFieldsInSavedRecord = fieldTypeGroups.stringFieldsInSavedRecord.map(
-        f => new F.StringFieldInSavedRecord(f.code, f.type)
+        f =>
+            new F.ConvertibleByKintoneTypeField(
+                f.code,
+                f.type
+            )
     );
 
     const savedTypeDefenition = new SavedTypeDefinition(
@@ -67,7 +75,11 @@ function convertToFieldGroup(
     input: ConvertToFieldGroupInput
 ): F.FieldGroup {
     const stringFields = input.stringFields.map(
-        f => new F.StringField(f.code, f.type)
+        f =>
+            new F.ConvertibleByKintoneTypeField(
+                f.code,
+                f.type
+            )
     );
 
     const calculatedFields = input.calculatedFields.map(
@@ -75,11 +87,19 @@ function convertToFieldGroup(
     );
 
     const stringListFields = input.stringListFields.map(
-        f => new F.StringListField(f.code, f.type)
+        f =>
+            new F.ConvertibleByKintoneTypeField(
+                f.code,
+                f.type
+            )
     );
 
     const entityFields = input.entityListFields.map(
-        f => new F.EntityListField(f.code, f.type)
+        f =>
+            new F.ConvertibleByKintoneTypeField(
+                f.code,
+                f.type
+            )
     );
 
     const fileFields = input.fileTypeFields.map(

@@ -1,17 +1,18 @@
 import {
-    StringField,
-    StringListField,
-    EntityListField,
+    ConvertibleByKintoneTypeField,
     SubTableField,
     FileField,
     FieldGroup,
     CalculatedField,
 } from "./fields";
 
-describe("StringField", () => {
+describe("ConvertibleByKintoneTypeField with SINGLE_LINE_TEXT", () => {
     test("toTsExpression()", () => {
         expect(
-            new StringField("fieldName", "SINGLE_LINE_TEXT")
+            new ConvertibleByKintoneTypeField(
+                "fieldName",
+                "SINGLE_LINE_TEXT"
+            )
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -20,10 +21,13 @@ describe("StringField", () => {
     });
 });
 
-describe("StringField with Full Width Symbol FieldCode", () => {
+describe("ConvertibleByKintoneTypeField with Full Width Symbol FieldCode", () => {
     test("toTsExpression() with ・", () => {
         expect(
-            new StringField("・", "SINGLE_LINE_TEXT")
+            new ConvertibleByKintoneTypeField(
+                "・",
+                "SINGLE_LINE_TEXT"
+            )
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -32,7 +36,10 @@ describe("StringField with Full Width Symbol FieldCode", () => {
     });
     test("toTsExpression() with ￥", () => {
         expect(
-            new StringField("￥", "SINGLE_LINE_TEXT")
+            new ConvertibleByKintoneTypeField(
+                "￥",
+                "SINGLE_LINE_TEXT"
+            )
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -41,7 +48,10 @@ describe("StringField with Full Width Symbol FieldCode", () => {
     });
     test("toTsExpression() with ＿", () => {
         expect(
-            new StringField("＿", "SINGLE_LINE_TEXT")
+            new ConvertibleByKintoneTypeField(
+                "＿",
+                "SINGLE_LINE_TEXT"
+            )
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -50,7 +60,10 @@ describe("StringField with Full Width Symbol FieldCode", () => {
     });
     test("toTsExpression() with ＄", () => {
         expect(
-            new StringField("＄", "SINGLE_LINE_TEXT")
+            new ConvertibleByKintoneTypeField(
+                "＄",
+                "SINGLE_LINE_TEXT"
+            )
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -59,10 +72,13 @@ describe("StringField with Full Width Symbol FieldCode", () => {
     });
 });
 
-describe("StringListField", () => {
+describe("ConvertibleByKintoneTypeField with CHECK_BOX", () => {
     test("toTsExpression()", () => {
         expect(
-            new StringListField("fieldName", "CHECK_BOX")
+            new ConvertibleByKintoneTypeField(
+                "fieldName",
+                "CHECK_BOX"
+            )
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -71,10 +87,13 @@ describe("StringListField", () => {
     });
 });
 
-describe("EntityListField", () => {
+describe("ConvertibleByKintoneTypeField with USER_SELECT", () => {
     test("toTsExpression()", () => {
         expect(
-            new EntityListField("fieldName", "USER_SELECT")
+            new ConvertibleByKintoneTypeField(
+                "fieldName",
+                "USER_SELECT"
+            )
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -120,8 +139,7 @@ describe("FileField", () => {
         expect(
             new FileField("fieldName").tsExpression().trim()
         ).toEqual(
-            `
-"fieldName" : kintone.types.fields.File;`.trim()
+            `"fieldName" : kintone.types.fields.File;`.trim()
         );
     });
 });
@@ -131,24 +149,24 @@ describe("FieldGroup", () => {
         expect(
             new FieldGroup(
                 [
-                    new StringField(
+                    new ConvertibleByKintoneTypeField(
                         "fieldName1",
                         "SINGLE_LINE_TEXT"
                     ),
-                    new StringField(
+                    new ConvertibleByKintoneTypeField(
                         "fieldName2",
                         "SINGLE_LINE_TEXT"
                     ),
                 ],
                 [new CalculatedField("fieldName3")],
                 [
-                    new StringListField(
+                    new ConvertibleByKintoneTypeField(
                         "fieldName4",
                         "MULTI_SELECT"
                     ),
                 ],
                 [
-                    new EntityListField(
+                    new ConvertibleByKintoneTypeField(
                         "fieldName5",
                         "USER_SELECT"
                     ),
