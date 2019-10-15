@@ -22,7 +22,7 @@ declare namespace kintone {
         function urlForGet(
             path: string,
             params: any,
-            detectGuestSpace: boolean | null
+            detectGuestSpace?: boolean
         ): string;
 
         function getConcurrencyLimit(): Promise<{
