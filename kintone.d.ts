@@ -252,7 +252,7 @@ declare namespace kintone {
         extensionNumber: string;
         timezone: string;
         isGuest: boolean;
-        language: "ja" | "en" | "zh";
+        language: string;
     }
 
     function getLoginUser(): LoginUser;
