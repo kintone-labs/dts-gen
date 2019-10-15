@@ -8,9 +8,7 @@ declare namespace kintone {
             event: string | string[],
             handler: (event: any) => any
         ): boolean;
-        function off(
-            event: string | string[],
-        ): boolean;
+        function off(event: string | string[]): boolean;
         function off(): boolean;
     }
 
@@ -180,7 +178,7 @@ declare namespace kintone {
             function getConfig(pluginId: string): any;
             function setConfig(
                 config: any,
-                callback: () => void
+                callback?: () => void
             ): void;
 
             function proxy(
