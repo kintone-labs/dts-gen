@@ -8,6 +8,10 @@ declare namespace kintone {
             event: string | string[],
             handler: (event: any) => any
         ): boolean;
+        function off(
+            event: string | string[],
+        ): boolean;
+        function off(): boolean;
     }
 
     namespace api {
