@@ -204,7 +204,7 @@ declare namespace kintone {
                 method: string,
                 headers: any,
                 data: any,
-                callback: () => void
+                callback?: () => void
             ): void;
 
             function getProxyConfig(
