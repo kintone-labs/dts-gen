@@ -5,7 +5,7 @@ import {
 import {
     FieldGroup,
     SubTableField,
-    ConvertibleByKintoneTypeField,
+    TSDefinedField,
 } from "./fields";
 
 describe("TypeDefinition", () => {
@@ -51,7 +51,7 @@ interface TestType {
 });
 
 describe("SavedTypeDefinition", () => {
-    class TestStringFieldInSavedRecord extends ConvertibleByKintoneTypeField {
+    class TestStringFieldInSavedRecord extends TSDefinedField {
         constructor() {
             super(null, null);
         }
@@ -59,7 +59,7 @@ describe("SavedTypeDefinition", () => {
             return "// StringFieldInSavedRecord";
         }
     }
-    class TestUserField extends ConvertibleByKintoneTypeField {
+    class TestUserField extends TSDefinedField {
         constructor() {
             super(null, null);
         }

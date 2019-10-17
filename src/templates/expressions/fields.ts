@@ -6,11 +6,11 @@ import { KintoneFieldTypeToTypeScriptFieldTypeNameConverter as FieldTypeConverte
 
 export class FieldGroup implements TsExpression {
     constructor(
-        private stringFields: ConvertibleByKintoneTypeField[],
-        private calculatedFields: CalculatedField[],
-        private stringListFields: ConvertibleByKintoneTypeField[],
-        private entityListFields: ConvertibleByKintoneTypeField[],
-        private fileFields: FileField[]
+        private stringFields: TSDefinedField[],
+        private calculatedFields: TSDefinedField[],
+        private stringListFields: TSDefinedField[],
+        private entityListFields: TSDefinedField[],
+        private fileFields: TSDefinedField[]
     ) {}
 
     tsExpression(): string {
@@ -24,8 +24,7 @@ ${toTsExpressions(this.fileFields)}
     }
 }
 
-export class ConvertibleByKintoneTypeField
-    implements TsExpression {
+export class TSDefinedField implements TsExpression {
     constructor(
         private fieldName: string,
         private fieldType: string
@@ -37,21 +36,6 @@ export class ConvertibleByKintoneTypeField
         }" : ${FieldTypeConverter.convert(
             this.fieldType
         )};`.trim();
-    }
-}
-
-export class CalculatedField implements TsExpression {
-    constructor(private fieldName: string) {}
-
-    tsExpression(): string {
-        return `"${this.fieldName}" : kintone.types.fields.Calc;`.trim();
-    }
-}
-
-export class FileField implements TsExpression {
-    constructor(private fieldName: string) {}
-    tsExpression(): string {
-        return `"${this.fieldName}" : kintone.types.fields.File;`.trim();
     }
 }
 

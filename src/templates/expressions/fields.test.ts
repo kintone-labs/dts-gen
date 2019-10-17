@@ -1,15 +1,13 @@
 import {
-    ConvertibleByKintoneTypeField,
+    TSDefinedField,
     SubTableField,
-    FileField,
     FieldGroup,
-    CalculatedField,
 } from "./fields";
 
-describe("ConvertibleByKintoneTypeField with SINGLE_LINE_TEXT", () => {
+describe("TSDefinedField with SINGLE_LINE_TEXT", () => {
     test("toTsExpression()", () => {
         expect(
-            new ConvertibleByKintoneTypeField(
+            new TSDefinedField(
                 "fieldName",
                 "SINGLE_LINE_TEXT"
             )
@@ -21,13 +19,10 @@ describe("ConvertibleByKintoneTypeField with SINGLE_LINE_TEXT", () => {
     });
 });
 
-describe("ConvertibleByKintoneTypeField with Full Width Symbol FieldCode", () => {
+describe("TSDefinedField with Full Width Symbol FieldCode", () => {
     test("toTsExpression() with ・", () => {
         expect(
-            new ConvertibleByKintoneTypeField(
-                "・",
-                "SINGLE_LINE_TEXT"
-            )
+            new TSDefinedField("・", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -36,10 +31,7 @@ describe("ConvertibleByKintoneTypeField with Full Width Symbol FieldCode", () =>
     });
     test("toTsExpression() with ￥", () => {
         expect(
-            new ConvertibleByKintoneTypeField(
-                "￥",
-                "SINGLE_LINE_TEXT"
-            )
+            new TSDefinedField("￥", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -48,10 +40,7 @@ describe("ConvertibleByKintoneTypeField with Full Width Symbol FieldCode", () =>
     });
     test("toTsExpression() with ＿", () => {
         expect(
-            new ConvertibleByKintoneTypeField(
-                "＿",
-                "SINGLE_LINE_TEXT"
-            )
+            new TSDefinedField("＿", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -60,10 +49,7 @@ describe("ConvertibleByKintoneTypeField with Full Width Symbol FieldCode", () =>
     });
     test("toTsExpression() with ＄", () => {
         expect(
-            new ConvertibleByKintoneTypeField(
-                "＄",
-                "SINGLE_LINE_TEXT"
-            )
+            new TSDefinedField("＄", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -72,13 +58,10 @@ describe("ConvertibleByKintoneTypeField with Full Width Symbol FieldCode", () =>
     });
 });
 
-describe("ConvertibleByKintoneTypeField with CHECK_BOX", () => {
+describe("TSDefinedField with CHECK_BOX", () => {
     test("toTsExpression()", () => {
         expect(
-            new ConvertibleByKintoneTypeField(
-                "fieldName",
-                "CHECK_BOX"
-            )
+            new TSDefinedField("fieldName", "CHECK_BOX")
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -87,13 +70,10 @@ describe("ConvertibleByKintoneTypeField with CHECK_BOX", () => {
     });
 });
 
-describe("ConvertibleByKintoneTypeField with USER_SELECT", () => {
+describe("TSDefinedField with USER_SELECT", () => {
     test("toTsExpression()", () => {
         expect(
-            new ConvertibleByKintoneTypeField(
-                "fieldName",
-                "USER_SELECT"
-            )
+            new TSDefinedField("fieldName", "USER_SELECT")
                 .tsExpression()
                 .trim()
         ).toEqual(
@@ -137,7 +117,9 @@ describe("SubTableField", () => {
 describe("FileField", () => {
     test("toTsExpression()", () => {
         expect(
-            new FileField("fieldName").tsExpression().trim()
+            new TSDefinedField("fieldName", "FILE")
+                .tsExpression()
+                .trim()
         ).toEqual(
             `"fieldName" : kintone.types.fields.File;`.trim()
         );
@@ -149,29 +131,29 @@ describe("FieldGroup", () => {
         expect(
             new FieldGroup(
                 [
-                    new ConvertibleByKintoneTypeField(
+                    new TSDefinedField(
                         "fieldName1",
                         "SINGLE_LINE_TEXT"
                     ),
-                    new ConvertibleByKintoneTypeField(
+                    new TSDefinedField(
                         "fieldName2",
                         "SINGLE_LINE_TEXT"
                     ),
                 ],
-                [new CalculatedField("fieldName3")],
+                [new TSDefinedField("fieldName3", "CALC")],
                 [
-                    new ConvertibleByKintoneTypeField(
+                    new TSDefinedField(
                         "fieldName4",
                         "MULTI_SELECT"
                     ),
                 ],
                 [
-                    new ConvertibleByKintoneTypeField(
+                    new TSDefinedField(
                         "fieldName5",
                         "USER_SELECT"
                     ),
                 ],
-                [new FileField("fieldName6")]
+                [new TSDefinedField("fieldName6", "FILE")]
             )
                 .tsExpression()
                 .trim()

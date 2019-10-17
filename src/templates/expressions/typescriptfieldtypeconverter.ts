@@ -3,6 +3,8 @@ const KintoneStringFieldTypeAndTypeScriptFieldTypeName = {
     MULTI_LINE_TEXT: "kintone.types.fields.MultiLineText",
     RICH_TEXT: "kintone.types.fields.RichText",
     DATE: "kintone.types.fields.Date",
+    CALC: "kintone.types.fields.Calc",
+    FILE: "kintone.types.fields.File",
     NUMBER: "kintone.types.fields.Number",
     DATETIME: "kintone.types.fields.DateTime",
     TIME: "kintone.types.fields.Time",
