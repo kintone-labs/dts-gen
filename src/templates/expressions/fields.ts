@@ -2,15 +2,15 @@ import {
     TsExpression,
     toTsExpressions,
 } from "./expression";
-import { KintoneFieldTypeToTypeScriptFieldTypeNameConverter as FieldTypeConverter } from "./typescriptfieldtypeconverter";
+import { Converter as FieldTypeConverter } from "./typescriptfieldtypeconverter";
 
 export class FieldGroup implements TsExpression {
     constructor(
-        private stringFields: TSDefinedField[],
-        private calculatedFields: TSDefinedField[],
-        private stringListFields: TSDefinedField[],
-        private entityListFields: TSDefinedField[],
-        private fileFields: TSDefinedField[]
+        private stringFields: TsDefinedField[],
+        private calculatedFields: TsDefinedField[],
+        private stringListFields: TsDefinedField[],
+        private entityListFields: TsDefinedField[],
+        private fileFields: TsDefinedField[]
     ) {}
 
     tsExpression(): string {
@@ -24,11 +24,14 @@ ${toTsExpressions(this.fileFields)}
     }
 }
 
-export class TSDefinedField implements TsExpression {
-    constructor(
-        private fieldName: string,
-        private fieldType: string
-    ) {}
+export class TsDefinedField implements TsExpression {
+    private readonly fieldName: string;
+    private readonly fieldType: string;
+
+    constructor(fieldName: string, fieldType: string) {
+        this.fieldName = fieldName;
+        this.fieldType = fieldType;
+    }
 
     tsExpression(): string {
         return `"${

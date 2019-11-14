@@ -256,7 +256,7 @@ declare namespace kintone {
     function getLoginUser(): LoginUser;
     function getUiVersion(): 1 | 2;
 
-    namespace types.fields {
+    namespace definitely.typed.fields {
         interface SingleLineText {
             type?: "SINGLE_LINE_TEXT";
             value: string;

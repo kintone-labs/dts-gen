@@ -1,83 +1,83 @@
 import {
-    TSDefinedField,
+    TsDefinedField,
     SubTableField,
     FieldGroup,
 } from "./fields";
 
-describe("TSDefinedField with SINGLE_LINE_TEXT", () => {
+describe("TsDefinedField with SINGLE_LINE_TEXT", () => {
     test("toTsExpression()", () => {
         expect(
-            new TSDefinedField(
+            new TsDefinedField(
                 "fieldName",
                 "SINGLE_LINE_TEXT"
             )
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.types.fields.SingleLineText;`.trim()
+            `"fieldName" : kintone.definitely.typed.fields.SingleLineText;`.trim()
         );
     });
 });
 
-describe("TSDefinedField with Full Width Symbol FieldCode", () => {
+describe("TsDefinedField with Full Width Symbol FieldCode", () => {
     test("toTsExpression() with ・", () => {
         expect(
-            new TSDefinedField("・", "SINGLE_LINE_TEXT")
+            new TsDefinedField("・", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"・" : kintone.types.fields.SingleLineText;`.trim()
+            `"・" : kintone.definitely.typed.fields.SingleLineText;`.trim()
         );
     });
     test("toTsExpression() with ￥", () => {
         expect(
-            new TSDefinedField("￥", "SINGLE_LINE_TEXT")
+            new TsDefinedField("￥", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"￥" : kintone.types.fields.SingleLineText;`.trim()
+            `"￥" : kintone.definitely.typed.fields.SingleLineText;`.trim()
         );
     });
     test("toTsExpression() with ＿", () => {
         expect(
-            new TSDefinedField("＿", "SINGLE_LINE_TEXT")
+            new TsDefinedField("＿", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"＿" : kintone.types.fields.SingleLineText;`.trim()
+            `"＿" : kintone.definitely.typed.fields.SingleLineText;`.trim()
         );
     });
     test("toTsExpression() with ＄", () => {
         expect(
-            new TSDefinedField("＄", "SINGLE_LINE_TEXT")
+            new TsDefinedField("＄", "SINGLE_LINE_TEXT")
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"＄" : kintone.types.fields.SingleLineText;`.trim()
+            `"＄" : kintone.definitely.typed.fields.SingleLineText;`.trim()
         );
     });
 });
 
-describe("TSDefinedField with CHECK_BOX", () => {
+describe("TsDefinedField with CHECK_BOX", () => {
     test("toTsExpression()", () => {
         expect(
-            new TSDefinedField("fieldName", "CHECK_BOX")
+            new TsDefinedField("fieldName", "CHECK_BOX")
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.types.fields.CheckBox;`.trim()
+            `"fieldName" : kintone.definitely.typed.fields.CheckBox;`.trim()
         );
     });
 });
 
-describe("TSDefinedField with USER_SELECT", () => {
+describe("TsDefinedField with USER_SELECT", () => {
     test("toTsExpression()", () => {
         expect(
-            new TSDefinedField("fieldName", "USER_SELECT")
+            new TsDefinedField("fieldName", "USER_SELECT")
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.types.fields.UserSelect;`.trim()
+            `"fieldName" : kintone.definitely.typed.fields.UserSelect;`.trim()
         );
     });
 });
@@ -117,11 +117,11 @@ describe("SubTableField", () => {
 describe("FileField", () => {
     test("toTsExpression()", () => {
         expect(
-            new TSDefinedField("fieldName", "FILE")
+            new TsDefinedField("fieldName", "FILE")
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.types.fields.File;`.trim()
+            `"fieldName" : kintone.definitely.typed.fields.File;`.trim()
         );
     });
 });
@@ -131,40 +131,40 @@ describe("FieldGroup", () => {
         expect(
             new FieldGroup(
                 [
-                    new TSDefinedField(
+                    new TsDefinedField(
                         "fieldName1",
                         "SINGLE_LINE_TEXT"
                     ),
-                    new TSDefinedField(
+                    new TsDefinedField(
                         "fieldName2",
                         "SINGLE_LINE_TEXT"
                     ),
                 ],
-                [new TSDefinedField("fieldName3", "CALC")],
+                [new TsDefinedField("fieldName3", "CALC")],
                 [
-                    new TSDefinedField(
+                    new TsDefinedField(
                         "fieldName4",
                         "MULTI_SELECT"
                     ),
                 ],
                 [
-                    new TSDefinedField(
+                    new TsDefinedField(
                         "fieldName5",
                         "USER_SELECT"
                     ),
                 ],
-                [new TSDefinedField("fieldName6", "FILE")]
+                [new TsDefinedField("fieldName6", "FILE")]
             )
                 .tsExpression()
                 .trim()
         ).toEqual(
             `
-"fieldName1" : kintone.types.fields.SingleLineText;
-"fieldName2" : kintone.types.fields.SingleLineText;
-"fieldName3" : kintone.types.fields.Calc;
-"fieldName4" : kintone.types.fields.MultiSelect;
-"fieldName5" : kintone.types.fields.UserSelect;
-"fieldName6" : kintone.types.fields.File;`.trim()
+"fieldName1" : kintone.definitely.typed.fields.SingleLineText;
+"fieldName2" : kintone.definitely.typed.fields.SingleLineText;
+"fieldName3" : kintone.definitely.typed.fields.Calc;
+"fieldName4" : kintone.definitely.typed.fields.MultiSelect;
+"fieldName5" : kintone.definitely.typed.fields.UserSelect;
+"fieldName6" : kintone.definitely.typed.fields.File;`.trim()
         );
     });
 });
