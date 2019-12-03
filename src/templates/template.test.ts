@@ -54,7 +54,7 @@ describe("renderAsFile", () => {
 
 describe("fullWidthSymbol Test", () => {
     const TEMP_TEST_TYPEDEF = "tmp.testfields.d.ts";
-    test("generate typedefinition file", async () => {
+    test("generate type definition file", async () => {
         const client = new DemoFullWidthSymbolClient();
         const fieldTypeGroups = await client
             .fetchFormProperties({
