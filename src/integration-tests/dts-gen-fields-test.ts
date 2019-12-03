@@ -208,16 +208,13 @@ function assertSubTable(ref: {
     assertNotUndefined(ref.value.length);
 }
 
-function assertSimpleField(
-    ref: { type: string; value: any },
-    expectedType: string
-) {
+function assertSimpleField(ref: any, expectedType: string) {
     assertType(ref.type, expectedType);
     assert.ok(ref.value !== undefined);
 }
 
 function assertStringListField(
-    ref: { type: string; value: string[] },
+    ref: any,
     expectedType: string
 ) {
     assertType(ref.type, expectedType);
@@ -238,10 +235,7 @@ function assertEntity(
 }
 
 function assertEntityListField(
-    ref: {
-        type: string;
-        value: { code: string; name: string }[];
-    },
+    ref: any,
     expectedType: string
 ) {
     assertType(ref.type, expectedType);

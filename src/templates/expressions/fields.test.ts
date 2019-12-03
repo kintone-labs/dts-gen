@@ -14,7 +14,7 @@ describe("TsDefinedField with SINGLE_LINE_TEXT", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.definitely.typed.fields.SingleLineText;`.trim()
+            `"fieldName" : kintone.fieldTypes.SingleLineText;`.trim()
         );
     });
 });
@@ -26,7 +26,7 @@ describe("TsDefinedField with Full Width Symbol FieldCode", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"・" : kintone.definitely.typed.fields.SingleLineText;`.trim()
+            `"・" : kintone.fieldTypes.SingleLineText;`.trim()
         );
     });
     test("toTsExpression() with ￥", () => {
@@ -35,7 +35,7 @@ describe("TsDefinedField with Full Width Symbol FieldCode", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"￥" : kintone.definitely.typed.fields.SingleLineText;`.trim()
+            `"￥" : kintone.fieldTypes.SingleLineText;`.trim()
         );
     });
     test("toTsExpression() with ＿", () => {
@@ -44,7 +44,7 @@ describe("TsDefinedField with Full Width Symbol FieldCode", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"＿" : kintone.definitely.typed.fields.SingleLineText;`.trim()
+            `"＿" : kintone.fieldTypes.SingleLineText;`.trim()
         );
     });
     test("toTsExpression() with ＄", () => {
@@ -53,7 +53,7 @@ describe("TsDefinedField with Full Width Symbol FieldCode", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"＄" : kintone.definitely.typed.fields.SingleLineText;`.trim()
+            `"＄" : kintone.fieldTypes.SingleLineText;`.trim()
         );
     });
 });
@@ -65,7 +65,7 @@ describe("TsDefinedField with CHECK_BOX", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.definitely.typed.fields.CheckBox;`.trim()
+            `"fieldName" : kintone.fieldTypes.CheckBox;`.trim()
         );
     });
 });
@@ -77,7 +77,7 @@ describe("TsDefinedField with USER_SELECT", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.definitely.typed.fields.UserSelect;`.trim()
+            `"fieldName" : kintone.fieldTypes.UserSelect;`.trim()
         );
     });
 });
@@ -121,7 +121,7 @@ describe("FileField", () => {
                 .tsExpression()
                 .trim()
         ).toEqual(
-            `"fieldName" : kintone.definitely.typed.fields.File;`.trim()
+            `"fieldName" : kintone.fieldTypes.File;`.trim()
         );
     });
 });
@@ -159,12 +159,12 @@ describe("FieldGroup", () => {
                 .trim()
         ).toEqual(
             `
-"fieldName1" : kintone.definitely.typed.fields.SingleLineText;
-"fieldName2" : kintone.definitely.typed.fields.SingleLineText;
-"fieldName3" : kintone.definitely.typed.fields.Calc;
-"fieldName4" : kintone.definitely.typed.fields.MultiSelect;
-"fieldName5" : kintone.definitely.typed.fields.UserSelect;
-"fieldName6" : kintone.definitely.typed.fields.File;`.trim()
+"fieldName1" : kintone.fieldTypes.SingleLineText;
+"fieldName2" : kintone.fieldTypes.SingleLineText;
+"fieldName3" : kintone.fieldTypes.Calc;
+"fieldName4" : kintone.fieldTypes.MultiSelect;
+"fieldName5" : kintone.fieldTypes.UserSelect;
+"fieldName6" : kintone.fieldTypes.File;`.trim()
         );
     });
 });

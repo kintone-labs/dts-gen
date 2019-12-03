@@ -79,8 +79,8 @@ describe("SavedTypeDefinition", () => {
         ).toEqual(
             `
 interface SavedTestType extends TestType {
-    $id : kintone.definitely.typed.fields.Id;
-    $revision: kintone.definitely.typed.fields.Revision;
+    $id : kintone.fieldTypes.Id;
+    $revision: kintone.fieldTypes.Revision;
     // UserField
     // StringFieldInSavedRecord
 }`.trim()
