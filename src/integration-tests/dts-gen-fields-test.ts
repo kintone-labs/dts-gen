@@ -1,6 +1,6 @@
 /// <reference path="./testfields.d.ts" />
 import * as assert from "assert";
-type SavedTestFields = kintone.types.SavedTestFields;
+type SavedTestFields = kintone.types.SavedFields;
 
 function assertFieldTypes(record: SavedTestFields) {
     // Assert simple field types
