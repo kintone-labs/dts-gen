@@ -1,6 +1,6 @@
 {
   "name": "@kintone/dts-gen",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Types for kintone js api and Types generating tools",
   "main": "dist/index.js",
   "scripts": {
@@ -37,10 +37,10 @@
     "@types/es6-promise": "^3.3.0",
     "@types/jest": "^24.0.23",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^10.17.5",
+    "@types/node": "^10.17.6",
     "@typescript-eslint/parser": "^2.7.0",
-    "eslint": "^6.6.0",
-    "eslint-plugin-jest": "^23.0.4",
+    "eslint": "^6.7.2",
+    "eslint-plugin-jest": "^23.0.5",
     "eslint-plugin-typescript": "^0.14.0",
     "jest": "^24.9.0",
     "npm-run-all": "^4.1.5",
