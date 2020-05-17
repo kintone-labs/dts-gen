@@ -102,9 +102,9 @@ describe("SubTableField", () => {
         ).toEqual(
             `
 "fieldName" : {
-    type: "SUBTABLE";
+    type?: "SUBTABLE";
     value: {
-        id: string;
+        id?: string;
         value: {
             
         }

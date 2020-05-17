@@ -51,9 +51,9 @@ export class SubTableField implements TsExpression {
     tsExpression(): string {
         return `
 "${this.fieldName}" : {
-    type: "${this.fieldType}";
+    type?: "${this.fieldType}";
     value: {
-        id: string;
+        id?: string;
         value: {
             ${this.fieldGroup.tsExpression()}
         }

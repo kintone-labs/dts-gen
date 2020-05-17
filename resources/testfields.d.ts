@@ -18,9 +18,9 @@ declare namespace kintone.types {
     Group_selection: kintone.fieldTypes.GroupSelect;
     Attachment: kintone.fieldTypes.File;
     Table: {
-      type: "SUBTABLE";
+      type?: "SUBTABLE";
       value: {
-        id: string;
+        id?: string;
         value: {
           Text_Table: kintone.fieldTypes.SingleLineText;
           Rich_text_Table: kintone.fieldTypes.RichText;
@@ -31,9 +31,9 @@ declare namespace kintone.types {
       }[];
     };
     Table_0: {
-      type: "SUBTABLE";
+      type?: "SUBTABLE";
       value: {
-        id: string;
+        id?: string;
         value: {
           Radio_button_Table: kintone.fieldTypes.RadioButton;
           Drop_down_Table: kintone.fieldTypes.DropDown;
