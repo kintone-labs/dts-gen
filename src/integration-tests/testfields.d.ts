@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare namespace kintone.types {
     interface Fields {
         Text: kintone.fieldTypes.SingleLineText;
